@@ -10,7 +10,7 @@ group = "spacetx"
 version = "0.1.2-SNAPSHOT"
 
 ext {
-    bfversion = "6.0.1"
+    bfversion = "6.9.0"
 }
 
 repositories {
@@ -26,23 +26,23 @@ repositories {
 }
 
 dependencies {
-    compile(group: 'ome', name: 'formats-api', version: bfversion){}
-    compile(group: 'ome', name: 'formats-bsd', version: bfversion){}
-    compile(group: 'ome', name: 'formats-gpl', version: bfversion){}
-    compile(group: 'ome', name: 'bio-formats-tools', version: bfversion){}
-    compile(group: 'args4j', name: 'args4j', version: '2.33'){}
-    compile group: 'com.fasterxml.jackson.core', name: 'jackson-databind', version: '2.9.6'
+    implementation "ome:formats-api:${bfversion}"
+    implementation "ome:formats-bsd:${bfversion}"
+    implementation "ome:formats-gpl:${bfversion}"
+    implementation "ome:bio-formats-tools:${bfversion}"
+    implementation "args4j:args4j:2.33"
+    implementation "com.fasterxml.jackson.core:jackson-databind:2.9.6"
 
     // https://github.com/junit-team/junit5-samples/blob/master/junit5-migration-gradle/build.gradle
     def junit4Version        = '4.12'
     def junitVintageVersion  = '5.2.0'
     def junitJupiterVersion  = '5.2.0'
     def junitPlatformVersion = '1.2.0'
-    testCompile("org.junit.jupiter:junit-jupiter-api:${junitJupiterVersion}")
-    testRuntime("org.junit.jupiter:junit-jupiter-engine:${junitJupiterVersion}")
-    testCompile("junit:junit:${junit4Version}")
-    testRuntime("org.junit.vintage:junit-vintage-engine:${junitVintageVersion}")
-    testRuntime("org.junit.platform:junit-platform-launcher:${junitPlatformVersion}")
+    testImplementation("org.junit.jupiter:junit-jupiter-api:${junitJupiterVersion}")
+    testImplementation("org.junit.jupiter:junit-jupiter-engine:${junitJupiterVersion}")
+    testImplementation("junit:junit:${junit4Version}")
+    testImplementation("org.junit.vintage:junit-vintage-engine:${junitVintageVersion}")
+    testImplementation("org.junit.platform:junit-platform-launcher:${junitPlatformVersion}")
 
     // https://stackoverflow.com/questions/45462987/junit5-with-intellij-and-gradle
     testImplementation "org.junit.jupiter:junit-jupiter-params:$junitJupiterVersion"
